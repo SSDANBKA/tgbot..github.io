@@ -38,8 +38,29 @@
     <script>
         // Получение текущего URL
         const currentUrl = window.location.href;
-        // Отображение URL на экране
-        document.getElementById('url').textContent = currentUrl;
+
+        // Функция для удаления ненужных параметров
+        function cleanUrl(url) {
+            const urlObj = new URL(url);
+            const params = new URLSearchParams(urlObj.hash.replace('#', ''));
+            
+            params.delete('tgWebAppData');
+            params.delete('tgWebAppVersion');
+            params.delete('tgWebAppPlatform');
+            params.delete('tgWebAppThemeParams');
+
+            urlObj.hash = params.toString();
+            return urlObj.toString();
+        }
+
+        // Чистим URL
+        const cleanedUrl = cleanUrl(currentUrl);
+
+        // Отображение очищенного URL на экране
+        document.getElementById('url').textContent = cleanedUrl;
+
+        // Перенаправление на очищенный URL
+        window.history.replaceState(null, null, cleanedUrl);
     </script>
 </body>
 </html>

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Application</title>
+    <title>Отображение текущего URL</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -11,55 +11,35 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            margin: 0;
             background-color: #f0f0f0;
         }
         .container {
-            text-align: center;
-            background: #fff;
+            background-color: white;
             padding: 20px;
-            border-radius: 10px;
+            border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            max-width: 400px;
-            width: 100%;
         }
-        .btn {
-            display: block;
-            width: 95%;
-            margin: 10px 0;
-            padding: 10px;
-            font-size: 16px;
-            color: #fff;
-            background-color: #007bff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            text-decoration: none;
+        h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
         }
-        .btn:hover {
-            background-color: #0056b3;
-        }
-        .link {
-            display: block;
-            margin-top: 5px;
-            margin-bottom: 15px;
-            color: #007bff;
-            text-decoration: none;
-        }
-        .link:hover {
-            text-decoration: underline;
+        p {
+            font-size: 18px;
+            word-break: break-all;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Web Application</h1>
-        <a href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGvj1TjTEelzbc3khF2betagQpYHt70wA6IA&s" class="btn">Button 1</a>
-       
-        <a href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsJ9ymOoUHjAcnuBCQUoKPH8Xx7EWk4PeDrg&s" class="btn">Button 2</a>
-        
-        <a href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYUMHVzHUSwv_yB50YyRraN6V1rtKn3cyQHw&s" class="btn">Button 3</a>
-        
+        <h1>Текущий URL</h1>
+        <p id="url"></p>
     </div>
+
+    <script>
+        // Получение текущего URL
+        const currentUrl = window.location.href;
+        // Отображение URL на экране
+        document.getElementById('url').textContent = currentUrl;
+    </script>
 </body>
 </html>
